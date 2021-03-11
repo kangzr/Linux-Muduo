@@ -129,13 +129,13 @@ public:
 		return m_pInstance;
 	}
 
-    	Singleton(Singleton&) = delete;
-		Singleton& operator=(Singleton&) = delete;
-        // Note: Scott Meyers mentions in his Effective Modern
-        //       C++ book, that deleted functions should generally
-        //       be public as it results in better error messages
-        //       due to the compilers behavior to check accessibility
-        //       before deleted status
+    Singleton(Singleton&) = delete;
+	Singleton& operator=(Singleton&) = delete;
+    // Note: Scott Meyers mentions in his Effective Modern
+    //       C++ book, that deleted functions should generally
+    //       be public as it results in better error messages
+    //       due to the compilers behavior to check accessibility
+    //       before deleted status
 private:
 	Singleton()
 	{
@@ -165,7 +165,7 @@ protected:
 	// 不允许创建noncopyable实例，但允许子类创建
 	// (即允许派生类构造和析构)
 	noncopyable() = default;
-	noncopyable() = default;
+	~noncopyable() = default;
 private:
 	// 使用delete关键字禁止编译器自动产生copy构造函数和赋值操作符
 	noncopyable(noncopyable&) = delete;
